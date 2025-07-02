@@ -1,0 +1,29 @@
+.gameDetailsContainer {
+    margin-top: 90px;
+
+    /* width: 100%; */
+    display: flex; flex-direction: column;
+    /* padding: 6%; */
+    /* box-sizing: border-box; */
+}
+
+.gameDetailsImage {
+    object-fit: contain;
+}
+
+.gameDetailsContainer .carouselContainer {
+    aspect-ratio: 1;
+    background-color: var(--nav-bg-opaque);
+
+}
+
+.gameDetailsContainer .carouselContainer img {
+    object-fit: contain;
+    border-radius: 0%;
+}
+
+
+
+.gameDetails {
+    padding: 0 40px;
+}
