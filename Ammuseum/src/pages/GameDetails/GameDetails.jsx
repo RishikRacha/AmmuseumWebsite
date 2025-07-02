@@ -23,7 +23,7 @@ function GameDetails() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:6969/api/games/get-one-game?id='+id)
+            .get('https://ammuseumwebsitebackend.onrender.com/api/games/get-one-game?id='+id)
             .then((res) => {
                 setGame(res.data.result);
             })

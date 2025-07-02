@@ -15,7 +15,7 @@ function HomeGamesList() {
 
     const getDefaultGames = () => {
         axios
-            .get('http://localhost:6969/api/games/get-defaults')
+            .get('https://ammuseumwebsitebackend.onrender.com/api/games/get-defaults')
             .then((res) => {
                 console.log("defaults api called");
                 // setAllGames(res.data.result);

@@ -25,7 +25,7 @@ function BoardGamesPage() {
         if(games.length != 0) setAllGames(games);
 
         else axios
-            .get("http://localhost:6969/api/games/get-all-games")
+            .get("https://ammuseumwebsitebackend.onrender.com/api/games/get-all-games")
             .then((res) => {
                 console.log("Data fetched using get-all-games api");
                 gamesDispatch(gamesActionCreator(res.data.result));
@@ -45,7 +45,7 @@ function BoardGamesPage() {
         }
         
         else axios
-            .get("http://localhost:6969/api/games/get-"+level)
+            .get("https://ammuseumwebsitebackend.onrender.com/api/games/get-"+level)
             .then((res)=>{
                 console.log("Data filtered to "+level+" from api");
                 setAllGames(res.data.result);
