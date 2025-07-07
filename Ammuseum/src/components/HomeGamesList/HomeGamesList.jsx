@@ -19,6 +19,7 @@ function HomeGamesList() {
             .get(apiUrl+'/api/games/get-defaults')
             .then((res) => {
                 console.log("defaults api called");
+                console.log(res);                
                 // setAllGames(res.data.result);
                 defaultGamesDispatch(defaultsActionCreator(res.data.result));
             });
