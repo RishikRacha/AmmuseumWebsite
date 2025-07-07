@@ -1,6 +1,8 @@
-const express = require('express')
+const express = require('express');
+require('dotenv').config();
 const app = express();
-const PORT = 6969;
+// const PORT = 6969;
+const PORT = process.env.PORT || 3000;
 const GameRoute = require('./router/games')
 const createConnection = require('./config/connection');
 const cors = require('cors');
