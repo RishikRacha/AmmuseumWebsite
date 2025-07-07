@@ -8,6 +8,7 @@ import { defaultsActionCreator } from "../../redux/myAction";
 
 function HomeGamesList() {
 
+    const apiUrl = import.meta.env.VITE_API_URL;
     // const [allGames, setAllGames] = useState();
     const defaultGamesDispatch = useDispatch();
     const defaultGames = useSelector((store) => store.defaultGames);
@@ -15,7 +16,7 @@ function HomeGamesList() {
 
     const getDefaultGames = () => {
         axios
-            .get('https://ammuseumwebsitebackend.onrender.com/api/games/get-defaults')
+            .get(apiUrl+'/api/games/get-defaults')
             .then((res) => {
                 console.log("defaults api called");
                 // setAllGames(res.data.result);
