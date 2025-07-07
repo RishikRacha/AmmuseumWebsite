@@ -18,17 +18,7 @@ app.post('/test', (req,res)=>{
 })
 
 
-// app.listen(PORT, ()=>{
-//     console.log("server started on "+ PORT);
-//     createConnection();
-// })
-
-createConnection()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log("✅ Server started on " + PORT);
-    });
-  })
-  .catch(err => {
-    console.error("❌ Failed to connect to MongoDB:", err);
-  });
+app.listen(PORT, ()=>{
+    console.log("server started on "+ PORT);
+    createConnection();
+})
