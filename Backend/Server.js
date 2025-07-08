@@ -1,5 +1,8 @@
 const express = require('express');
-require('dotenv').config();
+// require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const app = express();
 // const PORT = 6969;
 const PORT = process.env.PORT || 6969;
@@ -13,7 +16,7 @@ app.use("/api/games", GameRoute);
 
 console.log("PORT is", PORT);
 
-app.post('/test', (req,res)=>{
+app.get('/test', (req,res)=>{
     console.log("Test route HITTT");
     res.send({message: "test success"})
 })
@@ -25,6 +28,6 @@ app.get("/", (req,res)=>{
 
 
 app.listen(PORT, ()=>{
-    console.log("server started on "+ PORT);
+    console.log("server started on port: "+ PORT);
     createConnection();
 })
