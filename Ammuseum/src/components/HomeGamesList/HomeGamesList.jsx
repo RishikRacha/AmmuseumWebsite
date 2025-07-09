@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import './HomeGamesList.css'
 import GamesList from "../../pages/GamesList/GamesList";
 
 import {useDispatch, useSelector} from 'react-redux'
-
 import axios from "axios";
 import { defaultsActionCreator } from "../../redux/myAction";
 
@@ -35,7 +35,6 @@ function HomeGamesList() {
     return (
         <div>
             <div className="gamesListDiv">
-
                 <h1>Our Fav Games</h1>
             </div>
 

@@ -39,12 +39,11 @@ return (
     <div> <Nav />
 
         <div className='gameDetailsContainer'>
-            {/* <img src={currGame.image} className='gameDetailsImage' /> */}
 
             <div className="carouselContainer">
                     {images.map((image, index) => (
                         <div key={index} className="carouselContainerIn">
-                            <img src={image} className="carouselImg" alt={image}/>
+                            <img src={index==0 ? image : `https://ik.imagekit.io/t03abdmv1/game-assets/public/${image}`} className="carouselImg" alt={image}/>
                         </div>
                     ))}
             </div>
@@ -52,7 +51,7 @@ return (
             <div className='gameDetails'>
                 <h2>{game.name}</h2>
                 {/* <p>Game id: {id}</p> */}
-                <h3>Complexity: {game.difficulty} ★</h3>
+                <h3>BGG Weight: {game.difficulty} ★</h3>
                 <h3>Strategy level: {game.level}</h3>
 
                 <p>{game.description}</p>

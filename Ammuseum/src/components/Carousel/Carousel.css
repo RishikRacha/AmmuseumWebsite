@@ -37,3 +37,14 @@
     border-radius: 16px;
 }
 
+
+@media (min-width: 768px) {
+    .carouselContainer {
+        max-height: 60vh;
+        /* width: 60vw; */
+    }
+
+    .carouselDiv {
+        justify-items: center;
+    }
+}

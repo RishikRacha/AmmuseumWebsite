@@ -10,16 +10,16 @@ function Nav() {
     const [navOpen, setNavOpen] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
-      const handleScroll = () => {setIsOpaque(window.scrollY > 10);}; // make nav opaque after scrolling a lil bit
+        const handleScroll = () => {setIsOpaque(window.scrollY > 10);}; // make nav opaque after scrolling a lil bit
 
-      window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
-      // Clean up
-      return () => window.removeEventListener('scroll', handleScroll);
+        // Clean up
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const toggleNav = ()=> {
-      setNavOpen(!navOpen);
+        setNavOpen(!navOpen);
     }
 
     return (
@@ -31,11 +31,11 @@ function Nav() {
 
             <div className={`navButtons ${navOpen ? 'navOpen' : ''}`}>
                 <div className={`navOverlay ${navOpen ? 'navOpen' : ''}`} onClick={toggleNav}></div>
-                <Link className="navBtn" to='/'>Home</Link>
-                <Link className="navBtn" to='/board-games'>Board Games</Link>
-                <Link className="navBtn">Events</Link>
+                <Link className={`navBtn homeNavBtn ${window.location.pathname=="/" ? "active" : ""}`} to='/'>Home</Link>
+                <Link className={`navBtn ${window.location.pathname=="/board-games" ? "active" : ""}`} to='/board-games'>Board Games</Link>
+                <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events'>Events</Link>
+                <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games'>Other Games</Link>
             </div>
-
             <div className="search navIcon"><img src={search} /></div>
         </div>
     );

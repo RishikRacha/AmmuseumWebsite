@@ -91,17 +91,17 @@
 }
 
 .navOverlay {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #00000000;
-
+    background-color: #00000070;
+    opacity: 0%;
+    transition: opacity 0.4s ease;
 }
 
 .navOverlay.navOpen {
-    display: block;
-    background-color: #00000070;
+    opacity: 100%;
     transform: translateX(100%);
     width: 100%;
     height: 100%;
@@ -127,4 +127,66 @@
     background-color: var(--nav-btn-bg);
     /* background-color: unset; */
 
+}
+.active {
+    color: rgb(241, 163, 59);
+    background-color: var(--nav-btn-bg);
+    box-shadow: 2px 2px rgba(241, 163, 59, 0.7);
+}
+
+
+
+@media (min-width: 768px) {
+    .navOverlay.navOpen {
+        display: none;
+    }
+
+    .navButtons {
+        position: relative;
+        flex-direction: row;
+        padding: 0;
+        width: 100%;
+        height: 60px;
+        height: unset;
+        transform: unset;
+    }
+
+    .menuToggle {
+        display: none;
+    }
+
+    .navBtn {
+        border: none;
+        border-radius: 0;
+        width: unset;
+        padding: 0px 20px;
+        height: 60px;
+        /* box-sizing: border-box; */
+        color: var(--logo-yellow);
+        display: flex; align-items: center;
+        margin: 5px;
+    }
+
+    .navBtn:hover {
+        background-color: unset;
+        color: var(--logo-red);
+    }
+
+    .active {
+        border-top: 2px solid var(--logo-red) ;
+        box-shadow: unset;
+        color: rgb(213, 90, 69);
+        background-color: unset;
+    }
+
+    .titleDiv {
+        padding: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 940px) {
+    .navBtn {
+        margin: 20px;
+    }
 }
