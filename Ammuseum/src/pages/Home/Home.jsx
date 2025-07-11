@@ -7,7 +7,6 @@ import HomeGamesList from '../../components/HomeGamesList/HomeGamesList';
 function Home() {
   return (
     <div>
-        <Nav/>
         <Carousel />
         <HomeGamesList />
     </div>

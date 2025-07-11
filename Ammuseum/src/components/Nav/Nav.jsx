@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
 import {Link, useNavigate} from "react-router-dom"
-import logo from "../../assets/General/ammuseumLogo.png";
+import logo from "../../assets/General/ammuseumLogoLong.png";
 import menu from "../../assets/cliparts/menu.png"
-import search from "../../assets/cliparts/search.png"
+import dots from "../../assets/cliparts/dots.png"
 
 function Nav() {
     const [isOpaque, setIsOpaque] = useState(false);
     const [navOpen, setNavOpen] = useState(false);
+    const [socialsOpen, setSocialsOpen] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
         const handleScroll = () => {setIsOpaque(window.scrollY > 10);}; // make nav opaque after scrolling a lil bit
@@ -20,6 +21,16 @@ function Nav() {
 
     const toggleNav = ()=> {
         setNavOpen(!navOpen);
+    }
+    const toggleSocials = () => {
+        setSocialsOpen(!socialsOpen);
+    }
+    let links = {
+        insta: 'https://www.instagram.com/whatisammuseum?igsh=MW93M2d1bmo0dXcwNQ==',
+        whats: 'https://chat.whatsapp.com/Dvi0HfNzeviHLFuQxdFNFR',
+        menu: 'https://webapp.bash-india.com/club/11',
+        maps: 'https://maps.app.goo.gl/MHVd14ybozCci8Tr9',
+
     }
 
     return (
@@ -36,7 +47,16 @@ function Nav() {
                 <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events'>Events</Link>
                 <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games'>Other Games</Link>
             </div>
-            <div className="search navIcon"><img src={search} /></div>
+            <div className="search navIcon" onClick={toggleSocials}><img src={dots} /></div>
+            <div className={`socials ${socialsOpen ? 'socialsOpen' : ''}`}>
+                <div className={`socialsOverlay ${socialsOpen ? 'socialsOpen' : ''}`} onClick={toggleSocials}></div>
+                <h1>More…</h1>
+                <Link className={`navBtn socialsBtn`} to={links.menu} target="_blank" >🔗 Our Menu</Link>
+                <Link className={`navBtn socialsBtn`} to={links.insta} target="_blank">🔗 Instagram Page </Link>
+                <Link className={`navBtn socialsBtn`} to={links.whats} target="_blank">🔗 Join the Whatsapp Community</Link>
+                <Link className={`navBtn socialsBtn`} to={links.maps} target="_blank">📍Our Location</Link>
+                
+            </div>
         </div>
     );
 }

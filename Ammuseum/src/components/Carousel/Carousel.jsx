@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./Carousel.css";
-import carousel1 from "../../assets/carousel/ammuseumLogo.jpg";
+import carousel1 from "../../assets/General/ammuseumLogo.png";
 import carousel2 from "../../assets/carousel/botcPic.jpg";
 import carousel3 from "../../assets/carousel/event.jpg";
 
@@ -23,7 +23,7 @@ function Carousel() {
                 left: itemWidth * indexRef.current,
                 behavior: 'smooth',
             });
-        }, 5000); // Change image every 3 seconds
+        }, 7000); // changes image every few seconds
 
         return () => clearInterval(interval);
     }, [images.length]);

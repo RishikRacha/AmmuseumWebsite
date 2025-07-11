@@ -13,7 +13,7 @@ function GameCard(gameInfo) {
     return (
         <div className="gameCardContainer" onClick={() => clickHandler(gameInfo._id)}>
             <div className="gameImgDiv">
-                <img src={gameInfo.image[0]} alt={`image of ${gameInfo.name}`} className="gameImg" />
+                <img src={gameInfo.image[0]} alt={`image of ${gameInfo.name}`} className="gameImg" loading="lazy" />
             </div>
             <div className="gameCardInfo">
                 <div className="gameCardTitleContainer"><h3>{gameInfo.name}</h3></div>

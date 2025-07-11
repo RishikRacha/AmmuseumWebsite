@@ -4,3 +4,9 @@
     gap: 4vw;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
+
+@media (min-width: 768px) {
+    .gamesDivContainer{
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+}

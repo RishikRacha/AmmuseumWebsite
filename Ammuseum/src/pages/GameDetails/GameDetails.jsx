@@ -5,7 +5,7 @@ import axios from 'axios'
 import Nav from '../../components/Nav/Nav';
 
 import gameImg1 from "../../assets/GameAssets/gameImg1.jpg";
-import ammuseumLogo from "../../assets/General/ammuseumLogoShort.png"
+import ammuseumLogo from "../../assets/carousel/AmmuseumLogoBG.jpg"
 
 
 function GameDetails() {
@@ -36,7 +36,7 @@ function GameDetails() {
     let images = [...game.image, ammuseumLogo]
 
 return (
-    <div> <Nav />
+    <div>
 
         <div className='gameDetailsContainer'>
 
