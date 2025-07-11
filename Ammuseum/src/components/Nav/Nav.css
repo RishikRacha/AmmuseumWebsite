@@ -204,6 +204,11 @@
         /* justify-content: space-evenly; */
 
     }
+    .navButtons.navOpen {
+    transform: translateX(0%);
+    background-color: unset;
+    box-shadow: unset
+}
 
     .menuToggle {
         display: none;

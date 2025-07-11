@@ -5,7 +5,7 @@ import axios from 'axios'
 import Nav from '../../components/Nav/Nav';
 
 import gameImg1 from "../../assets/GameAssets/gameImg1.jpg";
-import ammuseumLogo from "../../assets/General/AmmuseumLogo.png"
+import ammuseumLogo from "../../assets/General/AmmuseumLogoTransparent.png"
 
 
 function GameDetails() {
