@@ -42,20 +42,23 @@ function Nav() {
 
             <div className={`navButtons ${navOpen ? 'navOpen' : ''}`}>
                 <div className={`navOverlay ${navOpen ? 'navOpen' : ''}`} onClick={toggleNav}></div>
-                <Link className={`navBtn homeNavBtn ${window.location.pathname=="/" ? "active" : ""}`} to='/'>Home</Link>
-                <Link className={`navBtn ${window.location.pathname=="/board-games" ? "active" : ""}`} to='/board-games'>Board Games</Link>
-                <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events'>Events</Link>
-                <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games'>Other Games</Link>
+                <Link className={`navBtn homeNavBtn ${window.location.pathname=="/" ? "active" : ""}`} to='/' onClick={toggleNav}>Home</Link>
+                <Link className={`navBtn ${window.location.pathname=="/board-games" ? "active" : ""}`} to='/board-games' onClick={toggleNav}>Board Games</Link>
+                <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events' onClick={toggleNav}>Events</Link>
+                <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games' onClick={toggleNav}>Other Games</Link>
+                <Link className={`navBtn ${window.location.pathname=="/about" ? "active" : ""}`} to='/about' onClick={toggleNav}>About</Link>
             </div>
-            <div className="search navIcon" onClick={toggleSocials}><img src={dots} /></div>
+
+
+            <div className="more navIcon" onClick={toggleSocials}><img src={dots} /></div>
+
             <div className={`socials ${socialsOpen ? 'socialsOpen' : ''}`}>
                 <div className={`socialsOverlay ${socialsOpen ? 'socialsOpen' : ''}`} onClick={toggleSocials}></div>
                 <h1>More…</h1>
                 <Link className={`navBtn socialsBtn`} to={links.menu} target="_blank" >🔗 Our Menu</Link>
-                <Link className={`navBtn socialsBtn`} to={links.insta} target="_blank">🔗 Instagram Page </Link>
-                <Link className={`navBtn socialsBtn`} to={links.whats} target="_blank">🔗 Join the Whatsapp Community</Link>
+                <Link className={`navBtn socialsBtn`} to={links.insta} target="_blank">🔗 Instagram</Link>
+                <Link className={`navBtn socialsBtn`} to={links.whats} target="_blank">🔗 Join our Whatsapp Community</Link>
                 <Link className={`navBtn socialsBtn`} to={links.maps} target="_blank">📍Our Location</Link>
-                
             </div>
         </div>
     );

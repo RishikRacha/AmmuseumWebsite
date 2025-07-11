@@ -62,7 +62,7 @@
     box-shadow: 0 0 8px var(--logo-yellow);
 }
 
-.search img {
+.more img {
     filter: invert();
 }
 
@@ -180,6 +180,7 @@
     width: 90%;
     box-sizing: border-box;
     padding: 20px 0;
+    color: rgb(70, 167, 172);
 }
 
 .socialsBtn:active {

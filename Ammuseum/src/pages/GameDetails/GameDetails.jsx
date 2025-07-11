@@ -5,7 +5,7 @@ import axios from 'axios'
 import Nav from '../../components/Nav/Nav';
 
 import gameImg1 from "../../assets/GameAssets/gameImg1.jpg";
-import ammuseumLogo from "../../assets/carousel/AmmuseumLogoBG.jpg"
+import ammuseumLogo from "../../assets/General/AmmuseumLogo.png"
 
 
 function GameDetails() {
@@ -43,7 +43,7 @@ return (
             <div className="carouselContainer">
                     {images.map((image, index) => (
                         <div key={index} className="carouselContainerIn">
-                            <img src={index==0 ? image : `https://ik.imagekit.io/t03abdmv1/game-assets/public/${image}`} className="carouselImg" alt={image}/>
+                            <img src={index==0||index==images.length-1 ? image : `https://ik.imagekit.io/t03abdmv1/game-assets/public/${image}`} className="carouselImg" alt={image}/>
                         </div>
                     ))}
             </div>
