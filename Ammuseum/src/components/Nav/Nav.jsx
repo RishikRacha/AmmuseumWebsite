@@ -45,7 +45,7 @@ function Nav() {
                 <Link className={`navBtn homeNavBtn ${window.location.pathname=="/" ? "active" : ""}`} to='/' onClick={toggleNav}>Home</Link>
                 <Link className={`navBtn ${window.location.pathname=="/board-games" ? "active" : ""}`} to='/board-games' onClick={toggleNav}>Board Games</Link>
                 <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events' onClick={toggleNav}>Events</Link>
-                <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games' onClick={toggleNav}>Other Games</Link>
+                {/* <Link className={`navBtn ${window.location.pathname=="/other-games" ? "active" : ""}`} to='/other-games' onClick={toggleNav}>Other Games</Link> */}
                 <Link className={`navBtn ${window.location.pathname=="/about" ? "active" : ""}`} to='/about' onClick={toggleNav}>About</Link>
             </div>
 
