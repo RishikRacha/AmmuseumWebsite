@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./Carousel.css";
-import carousel3 from "../../assets/General/ammuseumLogoTransparent.png";
+import carousel3 from "../../assets/General/AmmuseumLogoTransparent.png";
 import carousel2 from "../../assets/carousel/event.jpg";
 import carousel1 from "../../assets/carousel/GameOfTheMonth.jpg";
 

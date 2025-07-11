@@ -79,6 +79,7 @@ function BoardGamesPage() {
 
     return (
         <div className="BoardGamesPageContainer">
+            <h1>All Our Board Games</h1>
             
             <div className="filtersDiv">
                 <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} />
@@ -88,7 +89,6 @@ function BoardGamesPage() {
             </div>
 
             <div className="gamesListDiv">
-                <h1>All Our Board Games</h1>
                 <GamesList gamesArray={allGames} />
             </div>
 
