@@ -11,6 +11,7 @@ const GameSchema = new mongoose.Schema({
     min: { type: Number, required: true },
     max: { type: Number, required: false }
   },
+  default: {type: Boolean, required: false}
 });
 
 

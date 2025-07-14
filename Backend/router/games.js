@@ -48,9 +48,9 @@ route.get('/get-light', (req, res)=>{
 route.get('/get-medium', (req, res)=>{
     Game.find({level: "Medium"})
         .then(data => {
-            if(data) res.send({ok: true, length: data.length, result: data})
-            else {throw new Error("Error fetching Medium Games")}})
-        .catch(err => {res.send({ok: false, error: err})})
+            res.send({ok: true, length: data.length, result: data})
+        })
+        .catch(err => {res.send({ok: false, error: err})});
 
 })
 
@@ -58,11 +58,14 @@ route.get('/get-medium', (req, res)=>{
 route.get('/get-heavy', (req, res)=>{
     Game.find({level: "Heavy"})
         .then(data => {
-            if(data) res.send({ok: true, length: data.length, result: data})
-            else {throw new Error("Error fetching Heavy Games")}})
-        .catch(err => {res.send({ok: false, error: err})})
+            res.send({ok: true, length: data.length, result: data})
+        })
+        .catch(err => {res.send({ok: false, error: err})});
+});
 
-})
+// route.post('/insert-many', (req, res) => {
+//     Game.insertMany((req.body))      .then(data => res.send({ok: true, result: "Inserted Successfully"}))    .catch(err => res.send({ok: false, error: err}))
+// })
 
 
 
