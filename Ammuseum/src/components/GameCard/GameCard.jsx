@@ -5,6 +5,7 @@ import playersIcon from "../../assets/cliparts/playerspixel.png"
 
 function GameCard(gameInfo) {
     const navigate = useNavigate();
+    const [loaded, setLoaded] = useState(false);
 
     const clickHandler = (_id) => {
         navigate(`/game-details?id=${_id}`);
@@ -14,7 +15,7 @@ function GameCard(gameInfo) {
     return (
         <div className="gameCardContainer" onClick={() => clickHandler(gameInfo._id)}>
             <div className="gameImgDiv">
-                <img src={gameInfo.image[0]} alt={`image of ${gameInfo.name}`} className="gameImg" loading="lazy" />
+                <img src={gameInfo.image[0]} alt={`image of ${gameInfo.name}`} className={`gameImg ${loaded ? 'fadein' : 'hidden'}`} loading="lazy" onLoad={() => setLoaded(true)} />
             </div>
             <div className="gameCardInfo">
                 <div className="gameCardTitleContainer"><h3>{gameInfo.name}</h3></div>

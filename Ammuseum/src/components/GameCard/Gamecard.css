@@ -28,6 +28,15 @@
     object-fit: cover;
     padding: 10px;
     box-sizing: border-box;
+    transition: opacity 0.5s ease-in;
+}
+
+.gameImg.fadeIn {
+  opacity: 1;
+}
+
+.gameImg.hidden {
+  opacity: 0;
 }
 
 .playersIcon {

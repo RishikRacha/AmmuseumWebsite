@@ -17,7 +17,7 @@ function BoardGamesPage() {
 //States
     const [allGames, setAllGames] = useState([]);
     const [level, setLevel] = useState('');
-    const cache_Timeout = 1000 * 60 * 60 * 4;
+    const cache_Timeout = 1000 * 60 * 10;
 
 //Redux Stuff
     const gamesDispatch = useDispatch();
@@ -55,7 +55,7 @@ function BoardGamesPage() {
 
     const getAllGames = () => {
         //redux check first
-        if(games.length != 0) {
+        if(games.length !== 0) {
             console.log("Loaded games from redux");
 
             setAllGames(games);
