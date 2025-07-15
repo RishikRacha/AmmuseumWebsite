@@ -14,26 +14,86 @@ import heavyStrategy from '../../assets/cliparts/heavyStrategy.png'
 function BoardGamesPage() {
     const apiUrl = import.meta.env.VITE_API_URL;
 
-    const [allGames, setAllGames] = useState();
+//States
+    const [allGames, setAllGames] = useState([]);
     const [level, setLevel] = useState('');
+    const cache_Timeout = 1000 * 60 * 60 * 4;
 
+//Redux Stuff
     const gamesDispatch = useDispatch();
     const games = useSelector((store) => store.games);
     const lightGames = useSelector((store) => store.lightGames)
     const mediumGames = useSelector((store) => store.mediumGames)
     const heavyGames = useSelector((store) => store.heavyGames)
 
-    const getAllGames = () => {
-        if(games.length != 0) setAllGames(games);
+    //Dispatch light med heavy games from getAllGames data to redux
+    const dispatchLevels = (all) => {
+        //filter all games by level
+        const light = all.filter(game => game.level === 'Light');
+        const medium = all.filter(game => game.level === 'Medium');
+        const heavy = all.filter(game => game.level === 'Heavy');
 
-        else axios
+        if(lightGames.length == 0) gamesDispatch(lightGamesActionCreator(light));
+        if(mediumGames.length == 0) gamesDispatch(mediumGamesActionCreator(medium));
+        if(heavyGames.length == 0) gamesDispatch(heavyGamesActionCreator(heavy));
+    };
+
+    function handleDispatch(level, data) {  //depricated
+        if (level == 'light') {
+            gamesDispatch(lightGamesActionCreator(data))
+        }
+        else if (level== 'medium') {
+            gamesDispatch(mediumGamesActionCreator(data))
+        }
+        else if(level == 'heavy') {
+            gamesDispatch(heavyGamesActionCreator(data))
+        }
+    }
+
+
+// Core Functions
+
+    const getAllGames = () => {
+        //redux check first
+        if(games.length != 0) {
+            console.log("Loaded games from redux");
+
+            setAllGames(games);
+            dispatchLevels(games);
+            return;
+        }
+
+        //local storage check if redux is empty
+        const cached = JSON.parse(localStorage.getItem('games'));
+        if(cached && (Date.now() - cached.timestamp < cache_Timeout)) {
+            console.log("Loaded games from localStorage");
+
+            setAllGames(cached.data);
+            gamesDispatch(gamesActionCreator(cached.data));         //add to redux store after fetching from localStorage
+            dispatchLevels(cached.data);
+            return;
+        }
+
+        //api for when redux is empty and local storage is expired or empty
+        axios
             .get(apiUrl+"/api/games/get-all-games")
             .then((res) => {
+                const all = res.data.result;
                 console.log("Data fetched using get-all-games api");
-                gamesDispatch(gamesActionCreator(res.data.result));
-                setAllGames(res.data.result);
+
+                //add to localStorage
+                localStorage.setItem('games', JSON.stringify({ 
+                    timestamp: Date.now(),
+                    data: all,
+                }))                
+
+                gamesDispatch(gamesActionCreator(all));             //add to redux store after fetching from api
+                setAllGames(all);
+
+                dispatchLevels(all); // Filter all games data by level
             });
     };
+
 
     const getFilteredGames = (level) => {
         if(level == 'light' && lightGames.length != 0) {
@@ -46,7 +106,7 @@ function BoardGamesPage() {
             setAllGames(heavyGames);
         }
         
-        else axios
+        else axios      //fallback, usage depricated
             .get(apiUrl+"/api/games/get-"+level)
             .then((res)=>{
                 console.log("Data filtered to "+level+" from api");
@@ -55,20 +115,9 @@ function BoardGamesPage() {
             })
     }
 
-    function handleDispatch(level, data) {
-        if (level == 'light') {
-            gamesDispatch(lightGamesActionCreator(data))
-        }
-        else if (level== 'medium') {
-            gamesDispatch(mediumGamesActionCreator(data))
-        }
-        else if(level == 'heavy') {
-            gamesDispatch(heavyGamesActionCreator(data))
-        }
-    }
 
     const clickHandler = (levelParam) => {
-        if( levelParam == level ) { setLevel(''); }
+        if(levelParam == level) setLevel('')
         else setLevel(levelParam);
     }
 

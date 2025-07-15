@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Gamecard.css";
 import { useNavigate } from "react-router-dom";
+import playersIcon from "../../assets/cliparts/playerspixel.png"
 
 function GameCard(gameInfo) {
     const navigate = useNavigate();
@@ -17,7 +18,10 @@ function GameCard(gameInfo) {
             </div>
             <div className="gameCardInfo">
                 <div className="gameCardTitleContainer"><h3>{gameInfo.name}</h3></div>
-                <h4>★ {gameInfo.level} strategy</h4>
+                <div className="gameCardOtherContainer">
+                    <h4>★ {gameInfo.level}</h4>
+                    <h4> <img className="playersIcon" src={playersIcon} alt="" /> : {gameInfo.players.min} - {gameInfo.players.max}</h4>
+                </div>
             </div>
         </div>
     );
