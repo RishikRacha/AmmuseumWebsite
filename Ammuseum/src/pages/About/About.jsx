@@ -9,7 +9,7 @@ function About() {
             <p>Maybe have some photos here</p>
             <p>and add the vision of the Cafe and what it is about</p>
             <p>then maybe pricing details</p>
-            <p>...and end with a few words to attract the customer</p>
+            <p>...and end with a few more words</p>
         </div>
     );
 }

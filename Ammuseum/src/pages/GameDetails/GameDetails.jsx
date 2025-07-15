@@ -43,7 +43,8 @@ return (
             <div className="carouselContainer">
                     {images.map((image, index) => (
                         <div key={index} className="carouselContainerIn">
-                            <img src={index==0||index==images.length-1 ? image : `https://ik.imagekit.io/t03abdmv1/game-assets/public/${image}`} className="carouselImg" alt={image}/>
+                            {/* <img src={index==0||index==images.length-1 ? image : `https://ik.imagekit.io/t03abdmv1/game-assets/public/${image}`} className="carouselImg" alt={image}/> */}
+                            <img src={image} className="carouselImg" alt={"Picture of " + game.name + " " + (index+1)}/>
                         </div>
                     ))}
             </div>

@@ -79,7 +79,7 @@ function BoardGamesPage() {
 
     return (
         <div className="BoardGamesPageContainer">
-            <h1>All Our Board Games</h1>
+            <h1 className="listingheading">All Our Board Games</h1>
             
             <div className="filtersDiv">
                 <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} />

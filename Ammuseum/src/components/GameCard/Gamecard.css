@@ -5,6 +5,7 @@
     width: 100%;
     aspect-ratio: 0.65;
     overflow: hidden;
+    cursor: pointer;
 
     transition: all 0.2s ease;
 }
