@@ -17,7 +17,7 @@ function BoardGamesPage() {
 //States
     const [allGames, setAllGames] = useState([]);
     const [level, setLevel] = useState('');
-    const cache_Timeout = 1000 * 60 * 10;
+    const cache_Timeout = 1000 * 60 * 1;
 
 //Redux Stuff
     const gamesDispatch = useDispatch();
