@@ -14,6 +14,7 @@ route.get('/get-all-games', (req,res)=>{
                     image: game.image,
                     level: game.level,
                     players: game.players,
+                    default: game.default
                 }))
                 res.send({ok: true, length: data.length, result: trimmed});
             }
