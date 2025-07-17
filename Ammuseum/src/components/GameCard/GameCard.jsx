@@ -21,7 +21,7 @@ function GameCard(gameInfo) {
                 <div className="gameCardTitleContainer"><h3>{gameInfo.name}</h3></div>
                 <div className="gameCardOtherContainer">
                     <h4>★ {gameInfo.level}</h4>
-                    <h4> <img className="playersIcon" src={playersIcon} alt="" /> : {gameInfo.players.min} - {gameInfo.players.max}</h4>
+                    <h4> <img className="playersIcon nodrag" src={playersIcon}  /> : {gameInfo.players.min} - {gameInfo.players.max}</h4>
                 </div>
             </div>
         </div>
