@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./HomeGamesList.css";
 import GamesList from "../../pages/GamesList/GamesList";
 import RollingDice from "../Dice/RollingDice";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
