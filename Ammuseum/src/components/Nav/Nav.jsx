@@ -36,12 +36,14 @@ function Nav() {
     return (
         <div className={`navContainer ${isOpaque ? 'opaque' : ''}`}>
 
-            <div className="menuToggle navIcon" onClick={toggleNav}><img src={menu} /></div>
+            <div className="menuToggle navIcon nodrag" onClick={toggleNav} style={{backgroundImage: menu}}></div>
 
-            <div className="titleDiv" onClick={() => navigate('/')}><img src={logo} className="title" /></div>
+            <div className="titleDiv" onClick={() => navigate('/')}><img src={logo} className="title" draggable={false}/></div>
 
             <div className={`navButtons ${navOpen ? 'navOpen' : ''}`}>
+                
                 <div className={`navOverlay ${navOpen ? 'navOpen' : ''}`} onClick={toggleNav}></div>
+
                 <Link className={`navBtn homeNavBtn ${window.location.pathname=="/" ? "active" : ""}`} to='/' onClick={toggleNav}>Home</Link>
                 <Link className={`navBtn ${window.location.pathname=="/board-games" ? "active" : ""}`} to='/board-games' onClick={toggleNav}>Board Games</Link>
                 <Link className={`navBtn ${window.location.pathname=="/events" ? "active" : ""}`} to='/events' onClick={toggleNav}>Events</Link>
@@ -50,7 +52,7 @@ function Nav() {
             </div>
 
 
-            <div className="more navIcon" onClick={toggleSocials}><img src={dots} /></div>
+            <div className="more navIcon nodrag" onClick={toggleSocials}>{}</div>
 
             <div className={`socials ${socialsOpen ? 'socialsOpen' : ''}`}>
                 <div className={`socialsOverlay ${socialsOpen ? 'socialsOpen' : ''}`} onClick={toggleSocials}></div>

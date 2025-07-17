@@ -6,6 +6,7 @@ import Nav from '../../components/Nav/Nav';
 
 import gameImg1 from "../../assets/GameAssets/gameImg1.jpg";
 import ammuseumLogo from "../../assets/General/AmmuseumLogoTransparent.png"
+import { useSelector } from 'react-redux';
 
 
 function GameDetails() {
@@ -13,6 +14,9 @@ function GameDetails() {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const [searchParams, setSearchParams] = useSearchParams();
+    const gamesList = useSelector(store => store.games);
+    const defaultGamesList = useSelector(store => store.defaultGames);
+    
     const [game, setGame] = useState({
         _id:'',
         name:'',
@@ -24,13 +28,24 @@ function GameDetails() {
     })
     const id = searchParams.get('id');
 
-    useEffect(() => {
+    const fetchGameData = (id) => {
+        const gameInStore = gamesList.find(game => game._id === id) || defaultGamesList.find(game => game._id === id);
+
+        if (gameInStore) {
+            setGame(gameInStore);
+            return;
+        }
+
         axios
             .get(apiUrl+'/api/games/get-one-game?id='+id)
             .then((res) => {
                 setGame(res.data.result);
             })
             .catch(err => {res.send(err)})
+    }
+
+    useEffect(() => {
+        fetchGameData(id);
     },[]);
 
     let images = [...game.image, ammuseumLogo]

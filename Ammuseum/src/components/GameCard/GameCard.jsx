@@ -15,7 +15,7 @@ function GameCard(gameInfo) {
     return (
         <div className="gameCardContainer" onClick={() => clickHandler(gameInfo._id)}>
             <div className="gameImgDiv">
-                <img src={gameInfo.image[0]} alt={`image of ${gameInfo.name}`} className={`gameImg ${loaded ? 'fadein' : 'hidden'}`} loading="lazy" onLoad={() => setLoaded(true)} />
+                <img src={gameInfo.image[0]+'?tr=w-360'} alt={`image of ${gameInfo.name}`} className={`gameImg nodrag ${loaded ? 'fadein' : 'hidden'}`} loading="lazy" onLoad={() => setLoaded(true)} />
             </div>
             <div className="gameCardInfo">
                 <div className="gameCardTitleContainer"><h3>{gameInfo.name}</h3></div>

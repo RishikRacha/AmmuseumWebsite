@@ -8,15 +8,7 @@ route.get('/get-all-games', (req,res)=>{
     Game.find()
         .then((data)=>{
             if(data) {
-                const trimmed = data.map(game => ({
-                    _id : game._id,
-                    name: game.name,
-                    image: game.image,
-                    level: game.level,
-                    players: game.players,
-                    default: game.default
-                }))
-                res.send({ok: true, length: data.length, result: trimmed});
+                res.send({ok: true, length: data.length, result: data});
             }
             else throw new Error("could not fetch games")})
         .catch(err=>{res.send({ok: false, error: err})})

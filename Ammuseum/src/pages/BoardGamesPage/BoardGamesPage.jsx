@@ -4,12 +4,14 @@ import {useDispatch, useSelector} from 'react-redux'
 import { gamesActionCreator , lightGamesActionCreator , mediumGamesActionCreator , heavyGamesActionCreator } from "../../redux/myAction";
 
 
+
 import './BoardGamesPage.css'
 import Nav from "../../components/Nav/Nav";
 import GamesList from "../../pages/GamesList/GamesList";
 import lightStrategy from '../../assets/cliparts/lightStrategy.png'
 import mediumStrategy from '../../assets/cliparts/mediumStrategy.png'
 import heavyStrategy from '../../assets/cliparts/heavyStrategy.png'
+import RollingDice from "../../components/Dice/RollingDice";
 
 function BoardGamesPage() {
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -17,7 +19,8 @@ function BoardGamesPage() {
 //States
     const [allGames, setAllGames] = useState([]);
     const [level, setLevel] = useState('');
-    const cache_Timeout = 1000 * 60 * 1;
+    const [isLoading, setIsLoading] = useState(false);
+    const cache_Timeout = 1000 * 60 * 60 * 4;
 
 //Redux Stuff
     const gamesDispatch = useDispatch();
@@ -60,6 +63,8 @@ function BoardGamesPage() {
 
             setAllGames(games);
             dispatchLevels(games);
+            startLoader(500);
+
             return;
         }
 
@@ -71,9 +76,12 @@ function BoardGamesPage() {
             setAllGames(cached.data);
             gamesDispatch(gamesActionCreator(cached.data));         //add to redux store after fetching from localStorage
             dispatchLevels(cached.data);
+            startLoader(500);
+
             return;
         }
 
+        setIsLoading(true);
         //api for when redux is empty and local storage is expired or empty
         axios
             .get(apiUrl+"/api/games/get-all-games")
@@ -91,6 +99,8 @@ function BoardGamesPage() {
                 setAllGames(all);
 
                 dispatchLevels(all); // Filter all games data by level
+                setIsLoading(false);
+
             });
     };
 
@@ -119,11 +129,18 @@ function BoardGamesPage() {
     const clickHandler = (levelParam) => {
         if(levelParam == level) setLevel('')
         else setLevel(levelParam);
+        startLoader(500);
+    }
+
+    const startLoader = (time) => {
+        setIsLoading(true);
+        setTimeout(() => {setIsLoading(false)}, time);
     }
 
     useEffect(() => {
         if(level == '') getAllGames()
         else getFilteredGames(level)
+        // startLoader(1000);
     }, [level]);
 
     return (
@@ -131,15 +148,22 @@ function BoardGamesPage() {
             <h1 className="listingheading">All Our Board Games</h1>
             
             <div className="filtersDiv">
-                <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} />
-                <img src={mediumStrategy} onClick={() => {clickHandler('medium'); }}   className={`filterBtn medium ${level=='medium'? 'active' : ''}`} />
-                <img src={heavyStrategy}  onClick={() => {clickHandler('heavy'); }}     className={`filterBtn  heavy ${level=='heavy' ? 'active' : ''}`} />
+                <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} draggable={false} />
+                <img src={mediumStrategy} onClick={() => {clickHandler('medium'); }}   className={`filterBtn medium ${level=='medium'? 'active' : ''}`} draggable={false} />
+                <img src={heavyStrategy}  onClick={() => {clickHandler('heavy'); }}     className={`filterBtn  heavy ${level=='heavy' ? 'active' : ''}`} draggable={false} />
 
             </div>
+
+            {isLoading ? <div style={{ textAlign: "center", marginTop: 50 }}>
+                <h2>Loading…</h2>
+                <RollingDice />
+                
+            </div> 
+            :
 
             <div className="gamesListDiv">
                 <GamesList gamesArray={allGames} />
-            </div>
+            </div>}
 
         </div>
     );

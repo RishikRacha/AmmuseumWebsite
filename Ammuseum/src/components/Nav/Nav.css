@@ -49,6 +49,11 @@
     cursor: pointer;
     box-sizing: border-box;
     transition: all 0.1s ease;
+
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
 }
 
 .navIcon img {
@@ -65,8 +70,11 @@
     box-shadow: 0 0 8px var(--logo-yellow);
 }
 
-.more img {
-    filter: invert();
+.more {
+    background-image: url("../../assets/cliparts/dots.png");
+}
+.menuToggle {
+    background-image: url("../../assets/cliparts/menu.png");
 }
 
 .navButtons {

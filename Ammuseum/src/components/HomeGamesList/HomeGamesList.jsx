@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import './HomeGamesList.css'
+import "./HomeGamesList.css";
 import GamesList from "../../pages/GamesList/GamesList";
+import RollingDice from "../Dice/RollingDice";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { defaultsActionCreator } from "../../redux/myAction";
 
@@ -12,35 +14,31 @@ function HomeGamesList() {
     // const [allGames, setAllGames] = useState();
     const defaultGamesDispatch = useDispatch();
     const defaultGames = useSelector((store) => store.defaultGames);
-    
+
 
     const getDefaultGames = () => {
+        const cached = JSON.parse(localStorage.getItem("games"));
 
-        const cached = JSON.parse(localStorage.getItem('games'));
-        
-        if(cached && Date.now() - cached.timestamp < 1000*60*60*24) {
+        if (cached && Date.now() - cached.timestamp < 1000 * 60 * 60 * 24) {
             console.log("loaded defaults from localStorage");
-            const cachedDefaults = cached.data.filter(game => game.default === true);
-            defaultGamesDispatch(defaultsActionCreator(cachedDefaults));       //add to redux store after fetching from localStorage
+            const cachedDefaults = cached.data.filter(
+                (game) => game.default === true
+            );
+            defaultGamesDispatch(defaultsActionCreator(cachedDefaults)); //add to redux store after fetching from localStorage
             return;
         }
 
-        axios
-            .get(apiUrl+'/api/games/get-defaults')
-            .then((res) => {
-                console.log("defaults api called");              
-                // setAllGames(res.data.result);
-                defaultGamesDispatch(defaultsActionCreator(res.data.result));
-            });
-
-        
-    }
+        axios.get(apiUrl + "/api/games/get-defaults").then((res) => {
+            console.log("defaults api called");
+            // setAllGames(res.data.result);
+            defaultGamesDispatch(defaultsActionCreator(res.data.result));
+        });
+    };
 
     useEffect(() => {
-        if(defaultGames.length == 0) getDefaultGames();
+        if (defaultGames.length == 0) getDefaultGames();
     }, []);
 
-    
     return (
         <div className="homeGamesListContainer">
             <div className="gamesListDiv">
