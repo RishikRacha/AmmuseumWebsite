@@ -145,7 +145,11 @@ function BoardGamesPage() {
 
     return (
         <div className="BoardGamesPageContainer">
-            <h1 className="listingheading">All Our Board Games</h1>
+            <h1 className="listingheading2">All Our Board Games</h1>
+
+            <hr className="listingFiltersSeperator"/>
+
+            <h2 className="filtersHeading">Filter Strategy Level:</h2>
             
             <div className="filtersDiv">
                 <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} draggable={false} />
@@ -153,6 +157,10 @@ function BoardGamesPage() {
                 <img src={heavyStrategy}  onClick={() => {clickHandler('heavy'); }}     className={`filterBtn  heavy ${level=='heavy' ? 'active' : ''}`} draggable={false} />
 
             </div>
+
+            {/* <hr className="listingFiltersSeperator"/> */}
+
+            {/* <h2 className="filtersHeading">{level ? level : 'All'} games</h2> */}
 
             {isLoading ? <div style={{ textAlign: "center", marginTop: 50 }}>
                 <h2>Loading…</h2>

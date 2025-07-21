@@ -5,12 +5,42 @@
 
 .filtersDiv {
     height: 80px;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     /* background-color: var(--nav-bg-opaque); */
+}
+
+.filtersHeading {
+    /* text-align: center; */
+    margin: 0% 4vw;
+    /* padding-top: 32px; */
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+}
+
+.listingFiltersSeperator {
+    /* display: none; */
+    width: 50vw;
+    border-color: var(--nav-btn-bg);
+    opacity: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.filterContainer {
+    box-sizing: border-box;
+    border: 2px solid rgba(255, 255, 255, 0.592);
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.listingheading2 {
+    text-align: center;
+    margin: auto;
 }
 
 .filterBtn {
@@ -32,4 +62,11 @@
     box-shadow: 0 0 10px goldenrod;
     transform: scale(1.1);
     /* border: 2px solid goldenrod; */
+}
+
+@media (max-width: 768px) {
+    .listingFiltersSeperator {
+        display: block;
+        width: 50vw;
+}
 }
