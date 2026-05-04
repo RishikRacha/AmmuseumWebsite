@@ -63,7 +63,7 @@ function EventPage() {
 
     const handleUnregister = async () => {
         setLoading(true);
-        await axios.post(
+        await api.post(
             "/events/unregister",
             { eventId: event._id },
             {
