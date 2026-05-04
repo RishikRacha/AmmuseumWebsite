@@ -6,3 +6,9 @@
 
   -webkit-user-drag: none;
 }
+
+.allC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

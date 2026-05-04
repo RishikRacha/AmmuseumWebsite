@@ -1,0 +1,107 @@
+.authContainer {
+    height: calc(100dvh - 80px);
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authCard {
+    /* background: rgba(44, 110, 114, 0.9); */
+    /* background: hsl(210, 42%, 16%); */
+    /* background: #0000002b; */
+    /* margin: 30px 0px; */
+    padding: 2rem;
+    border-radius: 20px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.authCard h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.authCard img {
+    height: 100px;
+    object-fit: contain;
+    width: fit-content;
+    align-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+input {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+.toggleText {
+    color: #aaa;
+    text-align: center;
+    /* font-size: 14px; */
+    width: 100%;
+}
+
+.toggleText span {
+    color: rgb(73, 150, 154);
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.submitBtn {
+    border: 2px solid var(--nav-btn-bg);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    color: rgb(73, 150, 154);
+    background: transparent;
+    background: hsl(215, 52%, 10%);
+
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.submitBtn:hover {
+    color: var(--logo-yellow);
+    background: var(--nav-btn-bg);
+}
+
+.authInput {
+    background: hsl(210, 42%, 16%);
+    /* background: hsl(215, 52%, 10%); */
+    /* background: #0000002b; */
+    /* border: 2px solid var(--nav-btn-bg); */
+    color: rgba(255, 255, 255, 0.87);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.authInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    color: rgba(122, 152, 154, 0.7);
+}
+
+@media (min-width: 768px) {
+    .authCard {
+        background-color: hsl(215, 52%, 6.5%);
+        /* border: 2px solid rgba(44, 110, 114, 1); */
+        /* box-shadow: 0 0 10px rgba(44, 110, 114, 0.799), 0 0 30px rgba(44, 110, 114, 0.465); */
+    }
+    
+    .authInput {
+        background: hsl(215, 52%, 10%);
+    }
+}

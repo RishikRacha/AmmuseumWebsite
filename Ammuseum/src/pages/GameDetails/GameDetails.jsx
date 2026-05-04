@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './GameDetails.css'
 import { useSearchParams } from 'react-router-dom'
 import axios from 'axios'
+import api from "../../api"
 
 import ammuseumLogo from "../../assets/General/AmmuseumLogoTransparent.png"
 import { useSelector } from 'react-redux';
@@ -34,8 +35,8 @@ function GameDetails() {
             return;
         }
 
-        axios
-            .get(apiUrl+'/api/games/get-one-game?id='+id)
+        api
+            .get('/games/get-one-game?id='+id)
             .then((res) => {
                 setGame(res.data.result);
             })

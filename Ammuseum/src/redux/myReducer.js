@@ -1,4 +1,4 @@
-const myReducer = (state = {defaultGames:[], games:[], lightGames:[], mediumGames: [], heavyGames: []}, action) => {
+const myReducer = (state = {defaultGames:[], games:[], lightGames:[], mediumGames: [], heavyGames: [], isLoggedIn: false, user: null}, action) => {
 
     if(action.type === "DEFAULTGAMES") {
         state = {...state,
@@ -30,6 +30,20 @@ const myReducer = (state = {defaultGames:[], games:[], lightGames:[], mediumGame
         }
     }
 
+    else if(action.type === "LOGIN") {
+        state = { ...state,
+            isLoggedIn: true,
+            user: action.payload,
+        }
+        console.log(state.user.username + " logged in.");
+    }
+
+    else if (action.type === "LOGOUT") {
+        state = {...state,
+            isLoggedIn: false,
+            user: null,
+        }
+    }
     
 
     return state;

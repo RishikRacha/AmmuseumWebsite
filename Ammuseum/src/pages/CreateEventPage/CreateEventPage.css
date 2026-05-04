@@ -1,0 +1,21 @@
+.createEventForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 800px;
+    min-width: 350px ;
+    width: 80% ;
+    align-content: center ;
+
+}
+
+.createEventForm input, .createEventForm textarea {
+    background: hsl(210, 42%, 16%);
+    color: rgba(255, 255, 255, 0.87);
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

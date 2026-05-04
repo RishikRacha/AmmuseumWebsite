@@ -2,11 +2,29 @@
     padding: 4vw;
     display: grid;
     gap: 4vw;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
 }
 
 @media (min-width: 768px) {
     .gamesDivContainer{
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2vw;
+    }
+
+    .gameCardContainer:active {
+    border-color: var(--logo-yellow);
+    box-shadow: 0px 0px 8px var(--logo-yellow);
+    transform: scale(1.05);
+}
+
+.gameCardContainer:active .gameCardTitleContainer {
+    color: var(--logo-yellow);
+}
+}
+
+@media (max-width: 432px) {
+    .gamesDivContainer {
+        /* padding: 8vw; */
+        /* gap: 8vw; */
     }
 }

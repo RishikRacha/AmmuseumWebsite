@@ -1,0 +1,169 @@
+.eventDetailsPageContainer {
+    margin-top: 120px;
+    padding: 0 1rem;
+}
+
+.eventRegistrationBtn {
+    background-color: var(--nav-btn-bg);
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+    /* display: block; */
+}
+
+.eventRegistrationBtn:hover {
+    background-color: rgb(241, 163, 59);
+    color: white;
+}
+
+.eventRegistrationBtn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 0px 12px rgb(241, 163, 59);
+}
+
+.eventRegistrationBtn:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Container */
+.eventDetailsPageContainer {
+  max-width: 720px;
+  margin: 120px auto;
+  padding: 28px;
+  border-radius: 18px;
+  width: 80%;
+  background: var(--nav-bg-opaque); /* 🔥 elevation */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Back link */
+.backLink {
+  font-size: 0.8rem;
+  color: #aaa;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: white;
+}
+
+/* Title hierarchy */
+.eventDetailsPageContainer h3 {
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.eventDetailsPageContainer h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Description */
+.eventDetailsPageContainer p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Participant count */
+.participantCount {
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--logo-yellow); /* 🔥 highlight */
+}
+
+/* Participants list */
+.participantsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+
+/* Player tags (important for visual quality) */
+.playerTag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.playerTag:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Login text */
+.eventDetailsPageContainer h4 {
+  margin-top: 20px;
+  color: #bbb;
+}
+
+/* HERO LAYOUT */
+.eventHero {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* DATE BADGE */
+.dateBadge {
+  min-width: 80px;
+  border-radius: 12px;
+  padding: 4px;
+
+  background: var(--logo-yellow);
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+
+  text-wrap: none;
+  text-align: center;
+}
+
+.dateDay {
+  font-size: 1.4rem;
+}
+
+.dateMonth {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* TEXT AREA */
+.eventHeroText h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* VENUE CHIP */
+.venueChip {
+  margin-top: 6px;
+  display: inline-block;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.7rem;
+  color: #ddd;
+}
+
+/* OPTIONAL: subtle glow */
+.dateBadge {
+  box-shadow: 0 0 12px rgba(241, 163, 59, 0.5);
+}

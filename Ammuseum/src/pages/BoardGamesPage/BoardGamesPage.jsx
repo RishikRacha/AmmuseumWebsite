@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../../api"
 import {useDispatch, useSelector} from 'react-redux'
 import { gamesActionCreator , lightGamesActionCreator , mediumGamesActionCreator , heavyGamesActionCreator } from "../../redux/myAction";
 
@@ -83,8 +84,8 @@ function BoardGamesPage() {
 
         setIsLoading(true);
         //api for when redux is empty and local storage is expired or empty
-        axios
-            .get(apiUrl+"/api/games/get-all-games")
+        api
+            .get("/games/get-all-games")
             .then((res) => {
                 const all = res.data.result;
                 console.log("Data fetched using get-all-games api");
@@ -116,8 +117,8 @@ function BoardGamesPage() {
             setAllGames(heavyGames);
         }
         
-        else axios      //fallback, usage depricated
-            .get(apiUrl+"/api/games/get-"+level)
+        else api      //fallback, usage depricated
+            .get("/games/get-"+level)
             .then((res)=>{
                 console.log("Data filtered to "+level+" from api");
                 setAllGames(res.data.result);
@@ -149,7 +150,7 @@ function BoardGamesPage() {
 
             <hr className="listingFiltersSeperator"/>
 
-            <h2 className="filtersHeading">Filter Strategy Level:</h2>
+            <h2 className="filtersHeading">Filter by Complexity:</h2>
             
             <div className="filtersDiv">
                 <img src={lightStrategy}  onClick={() => {clickHandler('light')}}     className={`filterBtn  light ${level=='light' ? 'active' : ''}`} draggable={false} />
@@ -158,9 +159,7 @@ function BoardGamesPage() {
 
             </div>
 
-            {/* <hr className="listingFiltersSeperator"/> */}
-
-            {/* <h2 className="filtersHeading">{level ? level : 'All'} games</h2> */}
+            <h3 className="filtersHeading">{level ? level+" Strategy" : 'All Games'}:</h3>
 
             {isLoading ? <div style={{ textAlign: "center", marginTop: 50 }}>
                 <h2>Loading…</h2>

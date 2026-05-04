@@ -4,6 +4,7 @@ import GamesList from "../../pages/GamesList/GamesList";
 
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import api from "../../api"
 import { defaultsActionCreator } from "../../redux/myAction";
 
 function HomeGamesList() {
@@ -26,7 +27,7 @@ function HomeGamesList() {
             return;
         }
 
-        axios.get(apiUrl + "/api/games/get-defaults").then((res) => {
+        api.get("/games/get-defaults").then((res) => {
             console.log("defaults api called");
             // setAllGames(res.data.result);
             defaultGamesDispatch(defaultsActionCreator(res.data.result));
