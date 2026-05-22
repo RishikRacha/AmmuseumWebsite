@@ -59,7 +59,7 @@
     padding: 0 10px;
     display: flex; flex-direction: column;
     justify-content: space-evenly;
-
+    position: relative;
 }
 .gameCardInfo h3 {
     margin: 0;
@@ -70,12 +70,15 @@
     line-clamp: 2;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    /* font-size: 160%; */
+    font-size: clamp(0.9rem, 11cqi, 3rem);
     
 }
 .gameCardInfo h4 {
     margin: 0;
     color: rgb(207, 250, 239);
-    font-size: smaller;
+    font-size: 1rem;
+    font-size: clamp(0.65rem, 7cqi, 1.2rem);
     display: flex;
     align-items: center;
     white-space: nowrap;
@@ -90,11 +93,11 @@
 }
 
 /* to remove clipping when card gets too small */
-@container (max-width: 195px) { 
+/* @container (max-width: 195px) { 
     .gameCardInfo h3{font-size: 1rem;}
     .gameCardInfo h4 {font-size: 0.8rem;}
 
-}
+} */
 
 @media (hover: hover) and (pointer: fine) {
     .gameCardContainer:hover {

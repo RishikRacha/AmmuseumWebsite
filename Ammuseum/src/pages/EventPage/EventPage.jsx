@@ -97,19 +97,16 @@ function EventPage() {
     return (
         <div className="eventDetailsPageContainer">
             <a className="backLink" onClick={() => navigate('/events')}> &lt;Back to Events</a>
-            {/* <h3>Event:</h3> */}
+            <h3>Event:</h3>
             <div className="eventHero">
                 <div className="dateBadge">
-                    <div className="dateDay">
-                        {event.date}
-                    </div>
-                    <div >
-                        {event.time}
-                    </div>
+                    <div className="">{event.day}</div>
+                    <div className="dateDay">{event.date}</div>
+                    <div >{event.time}</div>
                 </div>
                 <div>
                     <h1>{event.name}</h1>
-                    <div className="venueChip">📍{event.venue}</div>
+                    <a href={event.location} target="_blank" rel="noopener noreferrer"><div className="venueChip">📍{event.venue}</div></a>
                 </div>
             </div>
 

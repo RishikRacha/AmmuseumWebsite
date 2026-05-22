@@ -21,7 +21,7 @@ function BoardGamesPage() {
     const [allGames, setAllGames] = useState([]);
     const [level, setLevel] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const cache_Timeout = 1000 * 60 * 60 * 4;
+    const cache_Timeout = 1000 * 60 * 60 * 24;
 
 //Redux Stuff
     const gamesDispatch = useDispatch();
@@ -158,7 +158,6 @@ function BoardGamesPage() {
                 <img src={heavyStrategy}  onClick={() => {clickHandler('heavy'); }}     className={`filterBtn  heavy ${level=='heavy' ? 'active' : ''}`} draggable={false} />
 
             </div>
-
             <h3 className="filtersHeading">{level ? level+" Strategy" : 'All Games'}:</h3>
 
             {isLoading ? <div style={{ textAlign: "center", marginTop: 50 }}>

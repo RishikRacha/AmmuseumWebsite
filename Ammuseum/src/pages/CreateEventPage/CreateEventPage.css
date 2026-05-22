@@ -2,11 +2,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 800px;
-    min-width: 350px ;
-    width: 80% ;
+    width: clamp(300px, 80%, 600px) ;
     align-content: center ;
-
 }
 
 .createEventForm input, .createEventForm textarea {
@@ -18,4 +15,72 @@
     border-radius: 6px;
     font-size: 1rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formInputLabel {
+    margin-bottom: -8px;
+    font-size: 0.9rem;
+    padding: 0 10px;
+    color: hsla(210, 35%, 65%, 0.87);
+    /* display: none; */
+}
+
+.eventRegistrationBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.floatingInput {
+  position: relative;
+  width: 100%;
+}
+
+.floatingInput input,
+.floatingInput textarea {
+  width: 100%;
+  padding: 18px 14px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: var(--nav-bg-opaque);
+  transition: all 0.2s ease;
+  color: white;
+  font-size: 1rem;
+
+  outline: none;
+}
+
+/* LABEL */
+.floatingInput label {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+
+  color: #aaa;
+  pointer-events: none;
+
+  transition: all 0.2s ease;
+  background: var(--nav-bg-opaque);
+  padding: 0 4px;
+}
+
+/* FLOAT EFFECT */
+.floatingInput input:focus + label,
+.floatingInput input:not(:placeholder-shown) + label,
+.floatingInput textarea:focus + label,
+.floatingInput textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+
+  font-size: 0.75rem;
+  color: var(--logo-yellow);
+}
+
+/* FOCUS */
+.floatingInput input:focus,
+.floatingInput textarea:focus {
+  border-color: var(--logo-yellow);
+  box-shadow: 0 0 10px rgba(241, 163, 59, 0.2);
 }

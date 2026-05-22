@@ -12,7 +12,13 @@ const GameSchema = new mongoose.Schema({
     min: { type: Number, required: true },
     max: { type: Number, required: false }
   },
-  default: {type: Boolean, required: false}
+  default: {type: Boolean, required: false},
+  
+  tags: { type: [String], required: false },
+  mechanics: { type: [String], required: false },
+  mood: { type: [String], required: false },
+  audience: { type: [String], required: false },
+  interactionType: { type: String, required: false },
 });
 
 

@@ -117,7 +117,7 @@
 
 /* DATE BADGE */
 .dateBadge {
-  min-width: 80px;
+  min-width: fit-content;
   border-radius: 12px;
   padding: 4px;
 
@@ -131,12 +131,16 @@
 
   font-weight: bold;
 
-  text-wrap: none;
+  text-wrap: wrap;
+  overflow: hidden;
   text-align: center;
 }
 
 .dateDay {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  width: 100%;
+  /* margin-top: 0.2rem; */
+  margin-bottom: 0.25rem;
 }
 
 .dateMonth {

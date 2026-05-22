@@ -59,7 +59,7 @@ router.post("/unregister", async (req, res) => {
     // 🔥 remove user from participants
     await Event.findByIdAndUpdate(req.body.eventId, {
       $pull: {
-        participants: { userId: user._id },
+        participants: { userId: { $in: [user._id, user._id.toString()] } },
       },
     });
 
@@ -76,7 +76,7 @@ router.get("/all", async (req, res) => {
     const events = await Event.find();
     res.json(events);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching events" });
+    res.status(500).json({ message: "Error fetching events", error: err.message });
   }
 });
 
@@ -85,18 +85,20 @@ router.get("/:id", async (req, res) => {
     const event = await Event.findById(req.params.id);
     res.json(event);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching event" });
+    res.status(500).json({ message: "Error fetching event", error: err.message });
   }
 });
 
 router.post("/create", verifyAdmin, async (req, res) => {
   try {
-    const { name, venue, date, time, description } = req.body;
+    const { name, venue, location, day, date, time, description } = req.body;
 
     const newEvent = new Event({
       name,
       venue,
+      location,
       date,
+      day,
       time,
       description,
       participants: [],
@@ -107,7 +109,7 @@ router.post("/create", verifyAdmin, async (req, res) => {
     res.json({ message: "Event created successfully" });
 
   } catch (err) {
-    res.status(500).json({ message: "Error creating event" });
+    res.status(500).json({ message: "Error creating event", error: err.message });
   }
 });
 
@@ -116,8 +118,8 @@ router.delete("/delete/:id", verifyAdmin, async (req, res) => {
     await Event.findByIdAndDelete(req.params.id);
 
     res.json({ message: "Event deleted" });
-  } catch {
-    res.status(500).json({ message: "Error deleting event" });
+  } catch (err) {
+    res.status(500).json({ message: "Error deleting event", error: err.message });
   }
 });
 

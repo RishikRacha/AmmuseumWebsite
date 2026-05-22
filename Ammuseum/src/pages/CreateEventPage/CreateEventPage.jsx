@@ -13,6 +13,8 @@ function CreateEventPage() {
   const [form, setForm] = useState({
     name: "",
     venue: "",
+    location: "",
+    day: "",
     date: "",
     time: "",
     description: "",
@@ -61,60 +63,108 @@ function CreateEventPage() {
     }
   };
 
+  const isFormValid =
+  form.name.trim() &&
+  form.venue.trim() &&
+  form.day.trim() &&
+  form.date.trim() &&
+  form.time.trim() &&
+  form.description.trim();
+
   return (
     <div style={{ padding: "20px", display:'flex', flexDirection:'column', alignItems:'center', marginTop: '120px'}}>
       <h1>Create Event</h1>
 
+
       <form onSubmit={handleSubmit} className="createEventForm" style={{}}>
-        
+      <div className="floatingInput"> 
         <input
           type="text"
           name="name"
-          placeholder="Event Name"
+          placeholder=" "
           value={form.name}
           onChange={handleChange}
           required
         />
+        <label className="formInputLabel">Event Name *</label>
+        </div>
 
+        <div className="floatingInput"> 
         <input
           type="text"
           name="venue"
-          placeholder="Venue"
+          placeholder=" "
           value={form.venue}
           onChange={handleChange}
           required
         />
+        <label className="formInputLabel">Venue *</label>
+        </div>
 
+        <div className="floatingInput"> 
+        <input
+          type="text"
+          name="location"
+          placeholder=" "
+          value={form.location}
+          onChange={handleChange}
+          required
+        />
+        <label className="formInputLabel">Maps link to venue</label>
+        </div>
+
+        <div className="floatingInput"> 
+        <input
+          type="text"
+          name="day"
+          placeholder=" "
+          value={form.day}
+          onChange={handleChange}
+          required
+        />
+        <label className="formInputLabel">Day of the Week *</label>
+        </div>
+
+        <div className="floatingInput"> 
         <input
           type="text"
           name="date"
-          placeholder="Date (e.g. Sunday, 30th Feb)"
+          placeholder=" "
           value={form.date}
           onChange={handleChange}
           required
         />
+        <label className="formInputLabel">Date *</label>
+        </div>
 
+
+        <div className="floatingInput"> 
         <input
           type="text"
           name="time"
-          placeholder="Time (e.g. 6 PM)"
+          placeholder=" "
           value={form.time}
           onChange={handleChange}
           required
         />
+        <label className="formInputLabel">Time *</label>
+        </div>
 
+        <div className="floatingInput">
         <textarea
           ref={textareaRef}
           name="description"
-          placeholder="Description"
+          placeholder=" "
           value={form.description}
           onChange={handleChange}
           rows={5}
           required
           style={{resize:'none'}}
-        />
+          />
+        <label className="formInputLabel">Description *</label>
+          </div>
 
-        <button type="submit" className="eventRegistrationBtn">Create Event</button>
+        <button type="submit" className="eventRegistrationBtn createEventBtn" disabled={!isFormValid}>Create Event</button>
       </form>
     </div>
   );

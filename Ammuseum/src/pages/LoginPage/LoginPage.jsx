@@ -101,67 +101,79 @@ function LoginPage() {
     <div className="authContainer">
       <div className="authCard">
         {/* <h2>{isLogin ? "Login" : "Register"}</h2> */}
-        <img src={logo} draggable={false} onClick={() => navigate('/')}/>
+        <img src={logo} draggable={false} />
 
         <form onSubmit={handleSubmit} className="allC">
-
-          <input
-            type="text"
-            name="username"
-                className="authInput"
-
-            placeholder="Username"
-            value={form.username}
-            onChange={handleChange}
-            autoCapitalize="none"
-            required
-          />
+          <div className="floatingInputAuth">
+            <input
+              type="text"
+              name="username"
+              className="authInput"
+              placeholder=" "
+              value={form.username}
+              onChange={handleChange}
+              autoCapitalize="none"
+              required
+            />
+            <label className="formInputLabel">Username</label>
+          </div>
 
           {!isLogin && (
             <>
-              <input
-                type="text"
-                name="name"
-                className="authInput"
-                placeholder="Name (Hidden to other users)"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
+              <div className="floatingInputAuth">
+                <input
+                  type="text"
+                  name="name"
+                  className="authInput"
+                  placeholder=" "
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  />
+                  <label className="formInputLabel">Name (hidden to other users)</label>
+              </div>
 
-              <input
-                type="text"
-                name="whatsapp"
-                className="authInput"
-                placeholder="WhatsApp Number"
-                value={form.whatsapp}
-                onChange={handleChange}
-                required
-              />
+              <div className="floatingInputAuth">
+                <input
+                  type="text"
+                  name="whatsapp"
+                  className="authInput"
+                  placeholder=" "
+                  value={form.whatsapp}
+                  onChange={handleChange}
+                  required
+                  />
+                  <label className="formInputLabel">Whatsapp Number</label>
+              </div>
             </>
           )}
 
-
-          <input
-            type="password"
-            name="password"
-            className="authInput"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-
-          {!isLogin && (
+          <div className="floatingInputAuth">
             <input
               type="password"
-              name="confirmPassword"
+              name="password"
               className="authInput"
-              placeholder="Confirm Password"
-              value={form.confirmPassword}
+              placeholder=" "
+              value={form.password}
               onChange={handleChange}
               required
             />
+            <label className="formInputLabel">Password</label>
+          </div>
+
+          {!isLogin && (
+            <div className="floatingInputAuth">
+              <input
+                type="password"
+                name="confirmPassword"
+                className="authInput"
+                placeholder=" "
+                value={form.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+              <label className="formInputLabel">Confirm Password</label>
+            </div>
           )}
 
           <button type="submit" className="submitBtn" >
