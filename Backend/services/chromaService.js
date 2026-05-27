@@ -6,6 +6,7 @@ const { ChromaClient } = require("chromadb");
 const client = new ChromaClient({
   host: process.env.CHROMA_HOST,
   port: process.env.CHROMA_PORT,
+  ssl: process.env.CHROMA_SSL === "true",
 });
 
 let collection;

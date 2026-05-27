@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 6969;
 const GameRoute = require('./router/games')
 const AuthRoute = require('./router/auth')
 const EventRoute = require('./router/events')
+const RecommendationRoute = require('./router/recommendations')
 const createConnection = require('./config/connection');
 const cors = require('cors');
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/api/games", GameRoute);
 app.use("/api/auth", AuthRoute);
 app.use("/api/events", EventRoute);
+app.use("/api/recommendations", RecommendationRoute);
 
 console.log("PORT is", PORT);
 

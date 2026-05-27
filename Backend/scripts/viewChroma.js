@@ -1,5 +1,5 @@
 require("dotenv").config({
-    // path: "../.env",
+    path: "../.env",
 });
 
 const { getCollection } = require("../services/chromaService");
@@ -36,3 +36,6 @@ async function viewChroma() {
 }
 
 viewChroma();
+module.exports = {
+    viewChroma,
+};
