@@ -13,6 +13,7 @@ import lightStrategy from '../../assets/cliparts/lightStrategy.png'
 import mediumStrategy from '../../assets/cliparts/mediumStrategy.png'
 import heavyStrategy from '../../assets/cliparts/heavyStrategy.png'
 import RollingDice from "../../components/Dice/RollingDice";
+import { Link } from "react-router-dom";
 
 function BoardGamesPage() {
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -158,6 +159,7 @@ function BoardGamesPage() {
                 <img src={heavyStrategy}  onClick={() => {clickHandler('heavy'); }}     className={`filterBtn  heavy ${level=='heavy' ? 'active' : ''}`} draggable={false} />
 
             </div>
+            <Link to='/recommendations'><h3 className="filtersHeading">Or use our recommendation engine 👉</h3></Link>
             <h3 className="filtersHeading">{level ? level+" Strategy" : 'All Games'}:</h3>
 
             {isLoading ? <div style={{ textAlign: "center", marginTop: 50 }}>

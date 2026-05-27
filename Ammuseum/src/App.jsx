@@ -15,6 +15,8 @@ import Events from "./pages/Events/Events";
 import About from "./pages/About/About";
 import EventPage from "./pages/EventPage/EventPage";
 import CreateEventPage from "./pages/CreateEventPage/CreateEventPage";
+import RecommendationsPage from "./pages/RecommendationsPage/RecommendationsPage";
+import RebrandBanner from "./components/Floater/RebrandBanner";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -43,10 +45,12 @@ function App() {
 
     return <div >
         <Nav />
+        {/* <RebrandBanner /> */}
         <Routes>
             <Route path='*' element={<Home />} />
             <Route path='game-details' element={<GameDetails />}/>
             <Route path='board-games' element={<BoardGamesPage />}/>
+            <Route path='recommendations' element={<RecommendationsPage />}/>
             <Route path='events' element={<Events />}/> 
             <Route path='/event/:id' element={<EventPage />}/> 
             <Route path='about' element={<About />}/> 

@@ -1,5 +1,6 @@
 .gameDetailsContainer {
     margin-top: 90px;
+    margin-bottom: 50px;
 
     /* width: 100%; */
     display: flex; flex-direction: column;

@@ -1,0 +1,162 @@
+.RecPageContainer {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+  color: white;
+  overflow-x: hidden;
+}
+
+.subText {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.inputSection textarea {
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--nav-bg-opaque);
+  color: white;
+  resize: none;
+  font-size: 1rem;
+}
+
+.inputSection button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--nav-btn-bg);
+  color: black;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.inputSection button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* GRID */
+.gamesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+/* CARD */
+.gameCard {
+  background: var(--nav-bg-opaque);
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.gameCard:hover {
+  transform: translateY(-4px);
+}
+
+.gameCard img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.gameMeta {
+  font-size: 1rem;
+  color: var(--logo-yellow);
+}
+
+.gameDesc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.playerInput input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+
+  appearance: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+.playerInput input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--logo-yellow);
+  cursor: pointer;
+  border: none;
+}
+
+.playerValue {
+  color: var(--logo-yellow);
+  font-weight: bold;
+}
+
+/* Slider track */
+.playerInput input[type="range"] {
+  width: 100%;
+  accent-color: var(--logo-yellow);
+  cursor: pointer;
+}
+
+
+.gameDetailsModal {
+    position: fixed;
+    /* top: 0; left: 0; */
+    inset: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    /* background: var(--nav-bg-opaque); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.modalBox {
+  position: relative;
+
+  /* width: min(900px, 90vw); */
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: var(--nav-bg-opaque);
+  border-radius: 16px;
+  padding-bottom: 50px;
+
+  /* IMPORTANT: override inherited layouts */
+  display: block !important;
+  flex: unset !important;
+  grid: unset !important;
+}
+
+.closeModalBtn {
+    position: fixed;
+    top: 10px; right: 10px;
+    background-color: var(--nav-btn-bg);
+    padding: 10px;
+    z-index: 1001;
+    border-radius: 50px;
+    width: 20px; height: 20px;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+}

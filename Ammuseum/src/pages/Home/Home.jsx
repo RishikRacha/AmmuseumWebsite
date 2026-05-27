@@ -6,6 +6,7 @@ import Nav from "../../components/Nav/Nav";
 import Carousel from "../../components/Carousel/Carousel";
 import GamesList from '../GamesList/GamesList';
 import HomeGamesList from '../../components/HomeGamesList/HomeGamesList';
+import RebrandBanner from '../../components/Floater/RebrandBanner';
 
 function Home() {
 
@@ -20,7 +21,7 @@ function Home() {
             {/* </div> */}
 
             {/* {isLoggedIn && <h3 style={{margin:'0', textAlign: 'center'}}>Hi {user.name}</h3>} */}
-
+            <RebrandBanner />
             <Carousel />
             <HomeGamesList />
         </div>

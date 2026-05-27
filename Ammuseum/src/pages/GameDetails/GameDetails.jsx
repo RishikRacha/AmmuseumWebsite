@@ -5,6 +5,8 @@ import axios from 'axios'
 import api from "../../api"
 
 import ammuseumLogo from "../../assets/General/AmmuseumLogoTransparent.png"
+import playersIcon from "../../assets/cliparts/playerspixel.png"
+import PlayerTag from '../../components/PlayerTag/PlayerTag'
 import { useSelector } from 'react-redux';
 
 
@@ -66,10 +68,25 @@ return (
             <div className='gameDetails'>
                 <h2>{game.name}</h2>
                 {/* <p>Game id: {id}</p> */}
-                <h3>BGG Weight: {game.difficulty} ★</h3>
-                <h3>Strategy level: {game.level}</h3>
-
+                <h4><img className="playersIcon nodrag" src={playersIcon}  /> : {game.players.min} - {game.players.max} Players | Playtime: {game?.playtime}</h4>
+                
+                
                 <p>{game.description}</p>
+                <p>This game has: {game?.mechanics?.join(", ")}.</p>
+                
+
+                <h4>Strategy level: {game.level}</h4>
+                <h4>BGG Weight: {game.difficulty} ★</h4>
+
+                <p><b>Mood:</b> {game.mood?.join(", ")}</p>
+
+                <b>Ideal for:</b> <br />
+                {game.idealFor?.map((tag, key) => (
+                    <PlayerTag key={key} player={{username: tag}}/>
+                ))}
+                {/* <h4>{game.idealFor}</h4> */}
+
+
             </div>
 
         </div>
